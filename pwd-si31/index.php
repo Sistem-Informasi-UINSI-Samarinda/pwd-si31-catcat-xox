@@ -18,7 +18,7 @@
 
             <?php foreach($data as $key => $value): ?>
                 <tr>
-                    <td><?php echo $value['No'] ?></td>
+                    <td><?php echo $value['No'] ?></td>9
                     <td><?php echo $value['NIM'] ?></td>
                     <td><?php echo $value['Nama'] ?></td>
                 </tr>
