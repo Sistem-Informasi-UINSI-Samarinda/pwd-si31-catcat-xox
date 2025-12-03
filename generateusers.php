@@ -1,5 +1,5 @@
 <?php 
-include 'pwd-si31/config/koneksi.php';
+include 'config/koneksi.php';
 
 $username = "admin";
 $email = "admin@admin.com";
