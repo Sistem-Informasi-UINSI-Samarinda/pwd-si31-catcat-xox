@@ -4,6 +4,8 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+
+
 ?>
 
 
@@ -29,42 +31,42 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 
   <div class="main-content">
-
     <section class="cards">
         <form action="" method="post">
-            <label for="">nama kategori</label>
+            <label for="">Nama Kategori</label>
             <br>
             <input type="text" name="nama_kategori">
             <br>
             <br>
-            <button type="submit" name="simpan">simpan</button>
+            <button type="submit" name="simpan">Simpan</button>
         </form>
-
      
     </section>
   </div>
-  <?php 
-  include '../../config/koneksi.php';
+<?php 
+include '../../config/koneksi.php';
 
-  if(isset($_POST['simpan'])){
+if(isset($_POST['simpan'])){
     $nama_kategori = $_POST['nama_kategori'];
     $created_at = date("Y-m-d H:i:s");
 
     $query = "
-                INSERT INTO kategori_berita
-                (nama_kategori, created_at) VALUES
-                ('$nama_kategori','$created_at')
-                ";
+            INSERT INTO kategori_berita 
+            (nama_kategori, created_at) VALUES
+            ('$nama_kategori','$created_at')
+            ";
 
     if(mysqli_query($conn, $query)){
-        header("Location: kategori.php");
-        exit();
+        echo "<script>
+                alert('Kategori Telah di unggah');
+                window.location.href='kategori.php';
+            </script>";
     }
     else{
-        echo"gagal menambahkan data : ". mysqli_error($conn);
+        echo "Gagal menambahkan data: ". mysqli_error($conn);
     }
-  }
-  ?>
+}
+?>
 
 </body>
 </html>
